@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>TASK: CAT</title>
+    <style>
+        .clear {
+            clear: both;
+        }
+
+        #content {
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button {
+            position: relative;
+            margin: 10px auto;
+            display: inline-block;
+        }
+
+        .row {
+            height: 60px;
+            width: 300px;
+            margin: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        #cat {
+            
+            display: block;
+            position: relative;
+            left: 0;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+
+            transform: scale(2.0);
+            -ms-transform: scale(2.0);
+            -webkit-transform: scale(2.0);
+
+            /* background-image: url("cat.png"); */
+            background-repeat: no-repeat;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAAB+CAMAAACeVYZXAAAAJ1BMVEWUlJQAAAAwNDA0THhFKytQTExkp9t8g4OTJACheFSjq6/TPDjb5uusKbZ3AAAAAnRSTlMAgJsrThgAAARLSURBVHgB7ZjRbiJZDETjmnGKLfz/37vyhbYI7cbbUaJ9oR56Mjr3uG5mkDB8nApwAH5ABjlN/76MEObrDfL3h4PCbw0Hg783PITvytDAGZjlH+ezDJDAPPw7MihJxFx+XgZjhZjKz8tQ+MIhDOXnZVwYLnnw0nMF0/fGn+XrZcm8XMfy8/JVSi41fPBnWXGPxvLzclTG8vNy/PkTEfkcy8/KQHze+GcAQ/lp2RUhIJ8+lp+WXbEiH8vPy3SXJHfO5ceyH7waRHd3Sj33F+XgJttHF+N2Mx4cuPskOrhUeecmJwGAPOKu5bfcIMEM9mrxeLV8WNoRsBYyCFuolyUz6cUBA4N2AENowYbDLKKRK9AxtiKHeD7yzjvv/P/BL8rgOP37MjQPx3dlBE7cb5KBlg/9s+xY+xSG8mb4LIMO6KLAWP4YiBjl5O6X66XnnV8nZvm+7VxFtJ/CG78uPsuKWqUqZFe++7g7yh5bKEVGKnzoC4NcC+Z9O1adVPHWJ4ljeTf88yuPufxYFkuGwMi4q/vw0PuOY1nYf9gRFRX7aMrj0e9lPcr1cpA7pQ3LuvLHX7yXY3XgeQlMvJJYaMujuunYy6V7s0AzmZkkpNqUb8MJYicTMAPZLOnmcIr2YU46dt1IXyRSJ/zLdKQC2G0K2QwnZflTQxPbApblMBCPs0WzvK/T4HvdCdJuc7pqt3V7u2N7PMGQ1Y5sCu104/011NM0IyJlwXa0+1t7pKUFrMfvvPPOubyX8WK/sIyDJ+WBAz8gt3xbl+EtLH+Se47QRYATjztr5w9yzy/Xi3vxoo0/yBk8bdfX2tjq6r0/yRmQqLh2K1uk3viDXMLDdh1bvLCO/UlOrtii2FZmeXGSjV9wkOMr/yw+l4Pq5bKjIvfIEEJhf+VDx3LGoiKq3eErO3/JOpZN2wGJ7qoXQ/PvsvNRy3svG7RqV+iOr1sVnNUeO99L7eTUIcmMkpolF0Rt/jvfPB2YAWzk1J3MRZaiw5846OC2m6cPe9r8l2MAvPmKvJZyE9kMhyHL7ys6/Gm4w+j5O5hRRDP8ZhgJ+jO1+4GkuaLX9Fq5bdvQFXweXku5RbBdsCFZ0lhT7NR6Pm7nlmDRd955Z1g48fMyAvXDaX+SIWFFwlR+XvZ6IxrLz8v13six/LzM7W2WY/lZGSkzfMnoy9NV54+ygWK4RNhReQ5o/Vnm3T0uzwGdP8uKxSN0VK51oPNLVi8rIjx5hPryGrDzQe3kZjj1itd/2mlZycVGLl8M7/xRZnKFv+K8ceGkbEvmjdvR8FD5BzIbOblCLg+p58zhzq7cvGR6woYruaSeU5E4incy2ckfoEQyn/hoh3Ppq7yX+y+wl53cPZ/L7ZfsrrxsQ3vvxEvO5/EB3Ga0MMINvZqctO15MB23GS2U7AM4dCNse7YxYM3ooef63rLq7uyK1d7fQhx5hdG2V3o85+8/f+uP/5h/AbDJYYhTMNDtAAAAAElFTkSuQmCC);
+        }
+
+        .runningCat {
+            animation: allDirections 3s steps(1) infinite;
+            -webkit-animation: allDirections 3s steps(1) infinite;
+            -moz-animation: allDirections 3s steps(1) infinite;
+            -ms-animation: allDirections 3s steps(1) infinite;
+            -o-animation: allDirections 3s steps(1) infinite;
+        }
+        .goDown {
+            animation: goDown 1s steps(3) infinite;
+            -webkit-animation: goDown 1s steps(3) infinite;
+            -moz-animation: goDown 1s steps(3) infinite;
+            -ms-animation: goDown 1s steps(3) infinite;
+            -o-animation: goDown 1s steps(3) infinite;
+        }
+        .goUp {
+            animation: goUp 1s steps(3) infinite;
+            -webkit-animation: goUp 1s steps(3) infinite;
+            -moz-animation: goUp 1s steps(3) infinite;
+            -ms-animation: goUp 1s steps(3) infinite;
+            -o-animation: goUp 1s steps(3) infinite;
+        }
+        .goLeft {
+            animation: goLeft 1s steps(3) infinite;
+            -webkit-animation: goLeft 1s steps(3) infinite;
+            -moz-animation: goLeft 1s steps(3) infinite;
+            -ms-animation: goLeft 1s steps(3) infinite;
+            -o-animation: goLeft 1s steps(3) infinite;
+        }
+        .goRight {
+            animation: goRight 1s steps(3) infinite;
+            -webkit-animation: goRight 1s steps(3) infinite;
+            -moz-animation: goRight 1s steps(3) infinite;
+            -ms-animation: goRight 1s steps(3) infinite;
+            -o-animation: goRight 1s steps(3) infinite;
+        }
+
+        @keyframes allDirections {
+            from {
+                background-position: 0px 0px;
+            }
+            9.09% {
+                background-position: -30px 0px;
+            }
+            18.18% {
+                background-position: -61px 0px;
+            }
+            27.27% {
+                background-position: 0px -33px;
+            }
+            36.36% {
+                background-position: -30px -33px;
+            }
+            45.45% {
+                background-position: -61px -33px;
+            }
+            54.54% {
+                background-position: 0px -66px;
+            }
+            63.63% {
+                background-position: -30px -66px;
+            }
+            72.72% {
+                background-position: -61px -66px;
+            }
+            81.81% {
+                background-position: 0px -96px;
+            }
+            90.90% {
+                background-position: -30px -96px;
+            }
+            to {
+                background-position: -61px -96px;
+            }
+        }
+
+        @keyframes goDown {
+            from {
+                background-position: 0px 0px;
+            }
+            to {
+                background-position: -92px 0px;
+            }
+        }
+
+        @keyframes goLeft {
+            from {
+                background-position: 0px -33px;
+            }
+            to {
+                background-position: -92px -33px;
+            }
+        }
+
+        @keyframes goRight {
+            from {
+                background-position: 0px -66px;
+            }
+            to {
+                background-position: -92px -66px;
+            }
+        }
+
+        @keyframes goUp {
+            from {
+                background-position: 0px -99px;
+            }
+            to {
+                background-position: -92px -99px;
+            }
+        }
+        @keyframes runAway {
+            from {
+                background-position: 0px -66px;
+            }
+            to {
+                background-position: -92px -66px;
+            }
+        }
+
+        #cat:hover,
+        #cat.touched {
+            -webkit-animation: 0;
+            animation: 0;
+            animation: runAway 0.6s steps(3) infinite;
+            -webkit-animation: runAway .6s steps(3) infinite;
+            left: 100%;
+            transition: left linear 4s;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div class="row">
+            <button id="run">run</button>
+            <button id="up">up</button>
+            <button id="down">down</button>
+            <button id="left">left</button>
+            <button id="right">right</button>
+        </div>
+        <div class="clear"></div>
+        <div id="cat"></div>
+    </div>
+
+    <script>
+        ; (function () {
+            var touched = false;
+            var cat = document.getElementById("cat");
+
+            var run = document.getElementById("run");
+            var up = document.getElementById("up");
+            var down = document.getElementById("down");
+            var left = document.getElementById("left");
+            var right = document.getElementById("right");
+
+            run.addEventListener("click", function () {
+                cat.className = "";
+                cat.classList.toggle("runningCat");
+            })
+            up.addEventListener("click", function () {              
+                cat.className = "";
+                cat.classList.toggle("goUp");
+            })
+            down.addEventListener("click", function () {            
+                cat.className = "";
+                cat.classList.toggle("goDown");
+            })
+            left.addEventListener("click", function () {            
+                cat.className = "";
+                cat.classList.toggle("goLeft");
+            })
+            right.addEventListener("click", function () {           
+                cat.className = "";
+                cat.classList.toggle("goRight");
+            })
+            cat.addEventListener("touchend", function () {        
+                
+                cat.classList.toggle("touched");
+                touched = !touched;
+                if(cat.classList || touched) {
+                    cat.className = "";
+                } else {
+                    cat.className = "touched";    
+                }
+            })
+        })()
+    </script>
+</body>
+
+</html>

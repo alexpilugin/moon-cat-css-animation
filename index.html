@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>TASK: MOON</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #000;
+        }
+
+        #moon {
+            display: block;
+            background: #fefefe;
+            border-radius: 50%;
+            
+            -moz-box-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 12px rgba(255, 255, 255, 1);
+            
+            width: 5rem;
+            height: 5rem;
+            position: absolute;
+            top: 20%;
+            right: 25%;
+            /*transform: translate(50%, -50%); //exact position */
+            cursor: pointer;
+            box-sizing: border-box;
+
+            -moz-transition: all .6s;
+            -o-transition: all .6s;
+            -webkit-transition: all .6s;
+            transition: all .6s;
+
+            overflow-y: scroll;
+            /*
+            background-repeat: no-repeat;
+            background-position: center center; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-image: url(https://upload.wikimedia.org/wikipedia/commons/4/40/Earth%27s_Moon_from_NOAA.jpg)
+            */
+        }
+
+        #moon.center {
+            top: 50%;
+            right: 50%;
+            width: 15%;
+            height: 20%;
+            border-radius: 1px;
+            background: #fff;
+
+            transform-origin: 35% 65%;
+            -webkit-transform-origin: 35% 65%;
+
+            transform: scale(4.0);
+            -ms-transform: scale(4.0);
+            -webkit-transform: scale(4.0);
+
+            transform: border-radius;
+            -ms-transform: border-radius;
+            -webkit-transform: border-radius;
+
+            -moz-box-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
+
+            -moz-transition: all .6s;
+            -o-transition: all .6s;
+            -webkit-transition: all .6s;
+            transition: all .6s;
+            background-image: none;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #moon.center>#content {
+            padding: 5px;
+        }
+
+        #moon.center>#content h1 {
+            font-size: 0.8vh;
+            text-align: center;
+        }
+
+        #moon.center>#content {
+            font-size: 0.6vh;
+        }
+
+        #moon.center>#content img {
+            width: 100%;
+            clear: both;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="moon"></div>
+    <div id="content" class="hide">
+        <h1>Angular Diameter of Moon is about 0.5 degrees</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Angular_diameter.jpg" />
+        <a href="http://astronomy.swin.edu.au/cosmos/A/Angular+Diameter" target="blank">Angular diameter</a>
+        <p>
+            When we look at objects in the night sky, we often do not know how far away they are. For example, although the stars look
+            like they are on the inside of a sphere of very large radius that surrounds the Earth, they are all at vastly
+            different distances from our Solar System. This makes it hard to judge the actual size of celestial objects.
+        </p>
+        <p>
+            The angular diameter of an object is the angle the object makes (subtends) as seen by an observer. This is demonstrated in
+            the diagram below, where the angular diameter of the object appears larger to an observer at A (closer to the
+            object) than to an observer at B. Angular diameter can also refer to the distances between two objects, measured
+            on the celestial sphere.
+        </p>
+        <p>
+            <b>For an observer on the Earth, the angular diameter of the Moon and the Sun are quite similar ( ~ 0.5o = 30 arcmin). </b>In reality, the Sun&#39s physical diameter  is 400 times bigger than the Moon, while the Moon is ~ 400 times closer  to the Earth.
+        </p>
+    </div>
+    <script>
+        var moon = document.querySelector("div#moon");
+        var content = document.getElementById("content");
+        var isOpen = false;
+
+        moon.addEventListener("click", function () {
+            moon.classList.toggle("center");
+            isOpen = !isOpen;
+            isOpen ? moon.appendChild(content) : moon.removeChild(content);
+
+            content.classList.toggle("hide");
+        })
+    </script>
+</body>
+
+</html>
